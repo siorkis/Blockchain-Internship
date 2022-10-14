@@ -1,0 +1,27 @@
+{
+  "name": "exercise",
+  "version": "1.0.0",
+  "main": "truffle-config.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "fast-install-run": "npm install & truffle compile & npm run test-headless",
+    "test": "npx truffle test --network development",
+    "ganache": "npx ganache-cli --accounts 10 --networkId 123456789 --host 127.0.0.1 --port 8545",
+    "test-headless": "npm run ganache > /dev/null & npm run test && kill $(lsof -t -i:8545) || kill $(lsof -t -i:8545)",
+    "compile": "npx truffle compile --all",
+    "truffle": "npx truffle console --network development"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@gitlab.titanium.codes:blockchain/internships/2021-q2-3/roc_exercise.git"
+  },
+  "author": "Rabii Ovidiu Cristian, Cravcenco Nichita, Misha Cheban, Stefan Boicu",
+  "license": "ISC",
+  "dependencies": {
+    "@openzeppelin/contracts": "^4.3.2",
+    "truffle-assertions": "^0.9.2",
+    "web3": "^1.6.0"
+  }
+}
